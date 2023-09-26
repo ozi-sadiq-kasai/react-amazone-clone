@@ -1,6 +1,18 @@
 import "./CheckoutProduct.css"
+import { useStateValue } from "../temp"
+import reducer from "../reducer"
 
 const CheckoutProduct = ({id,image,title,price,rating}) => {
+  // Dispatch an action to remove the item from the cart
+  const [{ cart }, dispatch] = useStateValue()
+
+  const removeItem = (itemToRemove) => {
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      id: id, // You may need to adjust this depending on how your cart state is structured
+    })
+  }
+
   return (
     <div className="checkoutProduct">
       <img className="checkoutProduct__image" src={image} alt="" />
@@ -14,7 +26,7 @@ const CheckoutProduct = ({id,image,title,price,rating}) => {
             ))}
         </p>
         <p className="checkout__price">{price}</p>
-        <button>Remove From Cart</button>
+        <button onClick={removeItem}>Remove From Cart</button>
       </div>
     </div>
   )

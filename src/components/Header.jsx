@@ -1,14 +1,20 @@
 import './Header.css'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { BsBasket } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+import { useStateValue } from '../temp.jsx'
+
 const Header = () => {
+  const [{ cart }, dispatch] = useStateValue()
   return (
     <div className="header">
-      <img
-        className="header__logo"
-        src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        alt="logo"
-      />
+      <Link to="/">
+        <img
+          className="header__logo"
+          src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          alt="logo"
+        />
+      </Link>
 
       <div className="header__search">
         <input type="text" className="header__searchInput" />
@@ -28,10 +34,14 @@ const Header = () => {
           <span className="header__OptionLineOne">Your</span>
           <span className="header__OptionLineTwo">Prime</span>
         </div>
-        <div className="header__OptionBasket">
-          <BsBasket />
-          <span className="header__OptionLineTwo header__BasketCount">0</span>
-        </div>
+        <Link to="/checkout">
+          <div className="header__OptionBasket">
+            <BsBasket />
+            <span className="header__OptionLineTwo header__BasketCount">
+              {cart.length}
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   )

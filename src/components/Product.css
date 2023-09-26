@@ -1,22 +1,21 @@
 .product{
  display: flex;
  flex-direction: column;
- /* border: 1px solid rgb(205, 215, 225); */
  background-color: white;
  align-items: center;
  justify-content: center;
  height: 100%;
  max-height: 400px;
- max-width:  300px;
+ /* max-width:  300px; */
  padding: 20px 25px;
- width: 100%;
+ width: 250px;
 }
 
 .product > img{
  height: 100%;
  max-height: 190px;
  width: 100%;
- max-width: 200px;
+ max-width: 300px;
  object-fit: contain;
  margin: 10px 0;
 }

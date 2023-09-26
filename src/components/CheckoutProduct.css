@@ -1,0 +1,15 @@
+.checkoutProduct{
+ border: 1px solid #000;
+ display: flex;
+ align-items: flex-start;
+ margin-bottom: 20px;
+}
+
+.checkoutProduct__rating{
+ border: 1px solid red;
+ display: flex;
+}
+
+.checkoutProduct__image{
+ margin-right: 10px;
+}
